@@ -6,6 +6,9 @@ Fisheries and aquaculture production,New South Wales/Victoria/Queensland/South A
 * Seafood exports in 2015-2016,by state,Australia
 * Seafood exports in 2014-2015,by state,Australia
 * Seafood exports in 2013-2014,by state,Australia
+* Seafood production in 2015-2016,by state,Australia
+* Seafood production in 2014-2015,by state,Australia
+* Seafood production in 2013-2014,by state,Australia
 
 ## Introduction for this task
 Based on the Fisheries and aquaculture production in different states, we calculate the average unit price for the different kinds of species and the yield of the species.
