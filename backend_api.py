@@ -29,8 +29,8 @@ def extract_data():
     # extract filtered data
     required_resrc = db[collection_name].find_one({'year': year}, {'_id': 0})
 
-    return jsonify(required_resrc), 200
-    # return render_template('index.html'), 200
+    # return jsonify(required_resrc), 200
+    return render_template('index.html',resource=required_resrc), 200
 
 
 if __name__ == '__main__':
