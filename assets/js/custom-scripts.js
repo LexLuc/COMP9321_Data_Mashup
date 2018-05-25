@@ -3,6 +3,7 @@
     License: Commons Attribution 3.0
     http://creativecommons.org/licenses/by/3.0/
 ---------------------------------------------------------  */
+//var data = JSON.parse('{{resource|safe}}')
 function Production_function(){
 return [
 					  { y: '2014', a: 50, b: 90},
