@@ -44,15 +44,24 @@ def get_fish_detail(table,colume):
                           'volume':table.cell(46,colume).value},
 
     }
-    for key in detail.keys():
+    keylist=list(detail.keys())
+    for key in keylist:
         if detail[key]['volume']=='0' \
-                or detail[key]['volume']=='na'\
-                or detail[key]['value']=='0'\
-                or detail[key]['value']=='na':
-            detail[key]['unit_price']='na'
-        else:
-            print(key,detail[key]['value'],detail[key]['volume'])
+                and detail[key]['value']=='0':
+            detail[key]['unit_price']=0.0
+        elif detail[key]['volume']=='na' \
+                and detail[key]['value']=='na':
+            detail[key]['volume']=0.0
+            detail[key]['value']=0.0
+            detail[key]['unit_price']=0.0
+
+        elif detail[key]['volume'] not in ['0','na'] and detail[key]['value'] not in ['0','na']:
+            # print(key,detail[key]['value'],detail[key]['volume'])
             detail[key]['unit_price']=detail[key]['value']/detail[key]['volume']
+        else:
+            detail[key]['volume'] = 0.0
+            detail[key]['value'] = 0.0
+            detail[key]['unit_price'] = 0.0
     return detail
 
 def create_entity(table,colume):
