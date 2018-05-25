@@ -83,6 +83,11 @@ def data_by_year():
     return jsonify(required_resrc), 200
     # return render_template('index.html', resrc=required_resrc), 200
 
+# for testing ---- by Yanjie
+@app.route("/" , methods=['GET', 'POST'])
+def test():
+    select = request.form.get('comp_select')
+    return(str(select))
 
 if __name__ == '__main__':
     app.run()
