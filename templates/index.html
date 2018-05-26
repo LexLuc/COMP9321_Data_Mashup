@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"> <strong>Fisher and Aquaculture In Australia </strong></a>
+                <a class="navbar-brand"> <strong>Fisher and Aquaculture In Australia </strong></a>
             </div>
         </nav>
 
@@ -41,7 +41,7 @@
                     <!--</li>-->
                     <p></p>
                     <li>
-                        <a href=url_for("index")><i class="fa fa-sitemap"></i> Production in states</a>
+                        <a><i class="fa fa-sitemap"></i> Production in states</a>
                         <form name="states" method="POST" action="http://127.0.0.1:5000/" role="form">
                             <p style="color:white;">State: </p> <select name="states" id="states" value="states">
                             <option value="NSW">New South Wales</option>
@@ -68,7 +68,12 @@
                         </form>
                     </li>
                     <li>
-                        <a href="species.html"><i class="fa fa-desktop"></i> Species Sorting by States</a>
+                        <a href="http://127.0.0.1:5000/species"><i class="fa fa-desktop"></i> Species Sorting by States</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5000/pies"><i class="fa fa-desktop"></i> Production and saling in States</a>
+                    </li>
+
 
                 </ul>
 
@@ -86,7 +91,7 @@
                     </div>
                 </div>
 
-				<div class="row">
+				<div class="row"  style="display:none">
 				    <div class="col-md-12">
 					    <div class="panel panel-default">
 						    <div class="panel-heading">
@@ -97,8 +102,8 @@
 						    </div>
 					    </div>
 					</div>
-				</div>
-                <div class="row">
+
+
 				    <div class="col-md-12">
 					    <div class="panel panel-default">
 						    <div class="panel-heading">
@@ -109,7 +114,7 @@
 						    </div>
 					    </div>
 					</div>
-				</div>
+                </div>
 
 
             <!-- /. PAGE INNER  -->

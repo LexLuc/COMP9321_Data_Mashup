@@ -87,8 +87,17 @@ def data_by_year():
 
 # for testing ---- by Yanjie
 @app.route("/" , methods=['GET'])
-def init():
+def init_st():
    return render_template('index.html')
+
+@app.route("/species" , methods=['GET'])
+def init_sp():
+   return render_template('species.html')
+
+@app.route("/pies" , methods=['GET'])
+def init_pi():
+   return render_template('persentage.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

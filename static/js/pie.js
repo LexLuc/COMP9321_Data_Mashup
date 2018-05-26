@@ -20,51 +20,29 @@
                     $('div.sidebar-collapse').removeClass('collapse')
                 }
             });
+            /* MORRIS DONUT CHART
+			----------------------------------------*/
+            Morris.Donut({
+                element: 'morris-donut-chart',
+                data: [{
+                    label: "Download Sales",
+                    value: 12
+                }, {
+                    label: "In-Store Sales",
+                    value: 30
+                }, {
+                    label: "Mail-Order Sales",
+                    value: 20
+                }],
+				   colors: [
+    '#A6A6A6','#1cc09f',
+    '#A8E9DC'
+  ],
+                resize: true
+            });
 
-            /* MORRIS BAR CHART
-			-----------------------------------------*/
-            Morris.Bar({
-                element: 'morris-bar-chart',
-                data: [{
-                   y:'2016',
-                    a: 100,
-                    b: 90,
-                    c:23,
-                    d:26,
-                    e:56,
-                    f:234,
-                    g:323
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b','c','d','e','f','g'],
-                labels: ['NSW', 'NT','QL','SA','TM','VT','WA'],
-				 barColors: [
-    'red','orange','green','blue','black','grey', '#A8E9DC'
-  ],
-                hideHover: 'auto',
-                resize: true
-            });
-            Morris.Bar({
-                element: 'morris-bar-chart2',
-                data: [{
-                   y:'2016',
-                    a: 100,
-                    b: 90,
-                    c:23,
-                    d:26,
-                    e:56,
-                    f:234,
-                    g:323
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b','c','d','e','f','g'],
-                labels: ['NSW', 'NT','QL','SA','TM','VT','WA'],
-				 barColors: [
-    'red','orange','green','blue','black','grey', '#A8E9DC'
-  ],
-                hideHover: 'auto',
-                resize: true
-            });
+
+
 
         },
 

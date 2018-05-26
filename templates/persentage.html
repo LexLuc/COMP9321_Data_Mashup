@@ -44,19 +44,11 @@
                         <a href="http://127.0.0.1:5000/"><i class="fa fa-sitemap"></i> Production in states</a>
                     </li>
                     <li>
-                        <a ><i class="fa fa-desktop"></i> Species Sorting by States</a>
-                        <form name="states" method="POST" action="http://127.0.0.1:5000/species" role="form">
-                        <p style="color:white;">Species: </p><select name="species" id="species" value="species">
-                                <option value="Abalone">Abalone</option>
-                                <option value="Salmonids">Salmonids</option>
-                                <option value="Whiting">Whiting</option>
-                                <option value="Swordfish">Swordfish</option>
-                                <option value="Crab">Crab</option>
-                                <option value="Tuna">Tuna</option>
-                                <option value="Scallop">Scallop</option>
-                                <option value="Prawns">Prawns</option>
-                                <option value="Rock lobster">Prck lobster</option>
-                        </select>
+                        <a href="http://127.0.0.1:5000/species"><i class="fa fa-sitemap"></i>  Species Sorting by States</a>
+                    </li>
+                    <li>
+                        <a ><i class="fa fa-desktop"></i>Production and saling in States</a>
+                        <form name="states" method="POST" action="http://127.0.0.1:5000/pies" role="form">
                         <p style="color:white;">Year: </p><select name="year" id="year">
                                 <option value="2005">2005</option>
                                 <option value="2006">2006</option>
@@ -72,9 +64,7 @@
                         <input type="submit" value="submit">
                         </form>
                     </li>
-                    <li>
-                        <a href="http://127.0.0.1:5000/pies"><i class="fa fa-desktop"></i> Production and saling in States</a>
-                    </li>
+
                 </ul>
 
             </div>
@@ -91,26 +81,28 @@
                 </div>
 
 				<div class="row" style="display:none">
-				    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Production in this year
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in NSW
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart"></div>
                         </div>
                     </div>
-                     <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="panel panel-default" style="display:block">
-                            <div class="panel-heading">
-                                Unit Price in this year
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart2"></div>
-                            </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in NSW
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart2"></div>
                         </div>
                     </div>
+                </div>
+
                 </div>
 
 
