@@ -14,7 +14,7 @@ client=MongoClient("mongodb://admin:qwer1234@ds117739.mlab.com:17739/fish")
 db=client["fish"]
 db.authenticate('admin','qwer1234')
 
-years=['2013','2014','2015','2010','2011','2012']
+years=['2013','2010','2014','2011','2015','2012']
 def get_fish_detail(table,colume):
     detail={
         'Live':{'value':table.cell(10,colume).value,'volume':table.cell(28,colume).value},
@@ -31,15 +31,19 @@ def get_fish_detail(table,colume):
         'Other_M&C':{'value':table.cell(23,colume).value,'volume':table.cell(41,colume).value},
 
     }
-    for key in detail.keys():
+    keylist = list(detail.keys())
+    for key in keylist:
         if detail[key]['volume'] == '0' \
-                or detail[key]['volume'] == 'na' \
-                or detail[key]['value'] == '0' \
-                or detail[key]['value'] == 'na':
-            detail[key]['unit_price'] = 'na'
-        else:
-            print(key, detail[key]['value'], detail[key]['volume'])
+                and detail[key]['value'] == '0':
+            detail[key]['unit_price'] = 0.0
+        elif detail[key]['volume'] == 'na' \
+                and detail[key]['value'] == 'na':
+            detail.pop(key)
+        elif detail[key]['volume'] not in ['0', 'na'] and detail[key]['value'] not in ['0', 'na']:
+            # print(key,detail[key]['value'],detail[key]['volume'])
             detail[key]['unit_price'] = detail[key]['value'] / detail[key]['volume']
+        else:
+            print(key)
     return detail
 
 def create_entity(table,colume,year):
