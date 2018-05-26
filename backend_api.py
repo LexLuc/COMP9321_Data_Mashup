@@ -4,13 +4,15 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 
-@app.route('/by_fish', methods=['GET'])
+@app.route('/', methods=['POST'])
 def data_by_fish():
     """
     Query the unit price, value and volume for each fish type
     :return: Json
     """
-
+    states = request.form["states"]
+    species = request.form["species"]
+    print(states,species)
     # connect to Mongodb
     client = MongoClient("mongodb://admin:qwer1234@ds117739.mlab.com:17739/fish")
     db = client['fish']
@@ -84,10 +86,9 @@ def data_by_year():
     # return render_template('index.html', resrc=required_resrc), 200
 
 # for testing ---- by Yanjie
-@app.route("/" , methods=['GET', 'POST'])
-def test():
-    select = request.form.get('comp_select')
-    return(str(select))
+@app.route("/" , methods=['GET'])
+def init():
+   return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
