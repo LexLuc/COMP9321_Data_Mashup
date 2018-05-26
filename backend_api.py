@@ -13,7 +13,7 @@ def extract_fishdb():
     return db
 
 
-@app.route('/', methods=['GET'])
+@app.route('/by_fish', methods=['GET'])
 def data_by_fish():
     """
     Query the unit price, value and volume for each fish type
