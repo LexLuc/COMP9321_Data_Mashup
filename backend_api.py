@@ -73,7 +73,9 @@ def data_by_year():
 
     # check parameters
     if state is None or species is None:
-        return jsonify(prompt='STATE AND SPECIES ARE REQUIRED'), 400
+        return jsonify(prompt='STATE AND SPECIES ARE REQUIRED',
+                       status_code=4001,
+                       data=None), 400
 
     states = set()
     items = set()
@@ -147,7 +149,6 @@ def data_by_state():
                    status_code=200,
                    data=required_resrc), 200
 
-
 # for testing ---- by Yanjie
 @app.route("/" , methods=['GET'])
 def init_st():
@@ -160,7 +161,6 @@ def init_sp():
 @app.route("/pies" , methods=['GET'])
 def init_pi():
    return render_template('persentage.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
