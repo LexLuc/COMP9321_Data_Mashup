@@ -111,11 +111,12 @@ def data_by_year():
                 price_chart['product_price'][year] = collection[species]['unit_price']
                 volume_chart['product_volume'][year] = collection[species]['volume']
 
-    return jsonify(prompt='OK',
-                   status_code=200,
-                   data={'sales': price_chart,
-                         'volume': volume_chart}), 200
-
+    # return jsonify(prompt='OK',
+    #                status_code=200,
+    #                data={'sales': price_chart,
+    #                      'volume': volume_chart}), 200
+    print(price_chart)
+    return render_template("linechart.html",price_chart=price_chart,volume=volume_chart)
 
 @app.route('/bar_chart_support', methods=['GET'])
 def data_by_state():
@@ -205,17 +206,17 @@ def pie_chart_support():
 
 
 # for testing ---- by Yanjie
-#@app.route("/" , methods=['GET'])
-#def init_st():
-#   return render_template('index.html')
+@app.route("/" , methods=['GET'])
+def init_st():
+  return render_template('index.html')
 
-#@app.route("/species" , methods=['GET'])
-#def init_sp():
-#   return render_template('species.html')
+@app.route("/species" , methods=['GET'])
+def init_sp():
+  return render_template('species.html')
 
-#@app.route("/pies" , methods=['GET'])
-#def init_pi():
-#   return render_template('persentage.html')
+@app.route("/pies" , methods=['GET'])
+def init_pi():
+  return render_template('persentage.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=23131,debug=True)

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -9,8 +9,6 @@
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="/static/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="/static/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="/static/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
@@ -90,6 +88,33 @@
                         </h1>
                     </div>
                 </div>
+
+				<div class="row"   id="showpage">
+				    <div class="col-md-12">
+					    <div class="panel panel-default">
+						    <div class="panel-heading">
+							Production
+						    </div>
+						    <div class="panel-body">
+							    <canvas id="morris-line-chart1"></canvas>
+						    </div>
+					    </div>
+					</div>
+
+
+				    <div class="col-md-12">
+					    <div class="panel panel-default">
+						    <div class="panel-heading">
+							Export
+						    </div>
+						    <div class="panel-body">
+							    <canvas id="morris-line-chart2"></canvas>
+						    </div>
+					    </div>
+					</div>
+                </div>
+
+
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
@@ -100,6 +125,63 @@
     <!-- jQuery Js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <!-- Custom Js -->
+<script>
+    var ctx = document.getElementById('morris-line-chart1').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["2005", "2006", "2007", "2008", "2009", "2010", "2011","2012","2013","2014"],
+        datasets: [{
+            label: "Unit Price for Export",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor:'rgb(255, 99, 132)',
+            data: [price_chart["2005"],price_chart["2006"],price_chart["2007"],price_chart["2008"],price_chart["2009"],price_chart["2010"],price_chart["2011"],{{price_chart["2012"]}},{{price_chart["2013"]}},{{price_chart["2014"]}}],
+            fill:false
+        },
+         {label: "Cost Value",
+            backgroundColor: 'rgb(100, 99, 132)',
+            borderColor:'rgb(100, 99, 132)',
+            data: [],
+            fill:false
+            }
+        ]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+var ctx = document.getElementById('morris-line-chart2').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["2005", "2006", "2007", "2008", "2009", "2010", "2011","2012","2013","2014"],
+        datasets: [{
+            label: "Production",
+            backgroundColor: 'rgb(200, 99, 100)',
+            borderColor:'rgb(200, 99, 100)',
+            data: [],
+            fill:false
+        },
+         {label: "Sales volume",
+            backgroundColor: 'rgb(30, 99, 22)',
+            borderColor:'rgb(30, 99, 22)',
+            data: [],
+            fill:false
+            }
+        ]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+</script>
 
 
 </body>

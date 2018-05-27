@@ -1,13 +1,12 @@
 var ctx_1 = document.getElementById("morris-bar-chart");
+
 var myChart = new Chart(ctx_1, {
     type: 'bar',
     data: {
-//        labels: ["{{rank_l[0]}}", "{{rank_l[1]}}", "{{rank_l[2]}}", "{{rank_l[3]}}", "{{rank_l[4]}}", "{{rank_l[5]}}","{{rank_l[6]}}"],
-        labels:[1,2,3,4,5,6,7]
+        labels: ["{{rank_l[0]}}", "{{rank_l[1]}}", "{{rank_l[2]}}", "{{rank_l[3]}}", "{{rank_l[4]}}", "{{rank_l[5]}}"],
         datasets: [{
-            label: 'Production',
-            data:[1,2,3,4,5,6,7]
-//            data: [{{rank_v[0]}}, {{rank_v[1]}}, {{rank_v[2]}}, {{rank_v[3]}}, {{rank_v[4]}}, {{rank_v[5]}},{{rank_v[6]}}],
+            label: 'Production Rank',
+            data: [{{rank_v[0]}}, {{rank_v[1]}}, {{rank_v[2]}}, {{rank_v[3]}}, {{rank_v[4]}}, {{rank_v[5]}}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -45,8 +44,8 @@ var myChart = new Chart(ctx_2, {
     data: {
         labels: ["{{rank_l[0]}}", "{{rank_l[1]}}", "{{rank_l[2]}}", "{{rank_l[3]}}", "{{rank_l[4]}}", "{{rank_l[5]}}","{{rank_l[6]}}"],
         datasets: [{
-            label: 'Unit Price',
-            data: [{{rank_v[0]}}, {{rank_v[1]}}, {{rank_v[2]}}, {{rank_v[3]}}, {{rank_v[4]}}, {{rank_v[5]}},{{rank_v[6]}}],
+            label: 'Unit Price Rank',
+            data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

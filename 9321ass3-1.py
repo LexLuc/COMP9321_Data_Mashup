@@ -70,8 +70,8 @@ def extract_data():
                 rank_l[i] = k
                 rank_v[i] = cur_v
 
-    return render_template('start.html', rank_l = rank_l, rank_v= rank_v, vol_d = vol_d)
+    return render_template('species.html', rank_l = rank_l, rank_v= rank_v, vol_d = vol_d)
     # return render_template('index.html'), 200
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=22423,debug=True)

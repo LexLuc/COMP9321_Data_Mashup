@@ -1,4 +1,273 @@
-////////////////////////////////NSW/////////////////////////////////////
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Species</title>
+    <!-- Bootstrap Styles-->
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="/static/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="/static/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="/static/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+    <div id="wrapper">
+     <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" > <strong>Fisher and Aquaculture In Australia </strong></a>
+            </div>
+        </nav>
+
+        <nav class="navbar-default navbar-side" role="navigation">
+
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <!--<li>-->
+                        <!--<a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Production in States</a>-->
+                    <!--</li>-->
+                    <p></p>
+                    <li>
+                        <a href="http://127.0.0.1:5000/"><i class="fa fa-sitemap"></i> Production in states</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5000/species"><i class="fa fa-sitemap"></i>  Species Sorted by States</a>
+                    </li>
+                    <li>
+                        <a ><i class="fa fa-desktop"></i>Production and saling in States</a>
+                        <form name="states" method="GET"  role="form">
+                        <p style="color:white;">Year: </p><select name="year" id="year">
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                        </select>
+                        <input type="submit" value="submit">
+                        </form>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                        </h1>
+                    </div>
+                </div>
+                <div style="display:none" id="showpage">
+				<div class="row" >
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in New South Wales
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in New South Wales
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+				<div class="row" >
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in Norther Therritory
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart3"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in Norther Therritory
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+				<div class="row" >
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in Queensland
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart5"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in Queensland
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart6"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+				<div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in South Australia
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart7"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in South Australia
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart8"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+				<div class="row" >
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in Tasmania
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart9"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in Tasmania
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart10"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+				<div class="row" >
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in Victoria
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart11"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in Victoria
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart12"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+				<div class="row" >
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production in Western Australia
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart13"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                       <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Selling in Western Australia
+                        </div>
+                        <div class="panel-body">
+							<div id="morris-donut-chart14"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                </div>
+
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+
+    ////////////////////////////////NSW/////////////////////////////////////
   var ctx = document.getElementById("morris-donut-chart");
     var myPieChart = new Chart(ctx, {
     type: 'pie',
@@ -434,3 +703,9 @@ var ctx_14 = document.getElementById("morris-donut-chart14");
       }
     }
 });
+
+</script>
+
+</body>
+
+</html>
