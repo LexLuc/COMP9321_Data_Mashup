@@ -9,8 +9,6 @@
     <link href="/static/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="/static/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="/static/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="/static/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
@@ -41,25 +39,22 @@
                     <!--</li>-->
                     <p></p>
                     <li>
-                        <a href="http://127.0.0.1:5000/"><i class="fa fa-sitemap"></i> Production in states</a>
+                        <a href="http://127.0.0.1:5050/"><i class="fa fa-sitemap"></i> Production in states</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/species"><i class="fa fa-sitemap"></i>  Species Sorted by States</a>
+                        <a href="http://127.0.0.1:5050/species"><i class="fa fa-sitemap"></i>  Species Sorted by States</a>
                     </li>
                     <li>
                         <a ><i class="fa fa-desktop"></i>Production and saling in States</a>
-                        <form name="states" method="GET"  role="form">
+                        <form name="states" method="GET"  role="form" action="pie_chart_support">
                         <p style="color:white;">Year: </p><select name="year" id="year">
-                                <option value="2005">2005</option>
-                                <option value="2006">2006</option>
-                                <option value="2007">2007</option>
-                                <option value="2008">2008</option>
-                                <option value="2009">2009</option>
+
                                 <option value="2010">2010</option>
                                 <option value="2011">2011</option>
                                 <option value="2012">2012</option>
                                 <option value="2013">2013</option>
                                 <option value="2014">2014</option>
+                                <option value="2015">2015</option>
                         </select>
                         <input type="submit" value="submit">
                         </form>
@@ -76,10 +71,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
+                            The Production and Sale Volume in {{year}}:
                         </h1>
                     </div>
                 </div>
-                <div style="display:none" id="showpage">
+                <div  id="showpage">
 				<div class="row" >
                     <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
@@ -87,7 +83,7 @@
                             Production in New South Wales
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart"></div>
+							<canvas id="morris-donut-chart"></canvas>
                         </div>
                     </div>
                     </div>
@@ -95,10 +91,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in New South Wales
+                            Sale Volume in New South Wales
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart2"></div>
+							<canvas id="morris-donut-chart2"></canvas>
                         </div>
                     </div>
                 </div>
@@ -112,7 +108,7 @@
                             Production in Norther Therritory
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart3"></div>
+							<canvas id="morris-donut-chart3"></canvas>
                         </div>
                     </div>
                     </div>
@@ -120,10 +116,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in Norther Therritory
+                            Sale Volume in Norther Therritory
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart4"></div>
+							<canvas id="morris-donut-chart4"></canvas>
                         </div>
                     </div>
                 </div>
@@ -137,7 +133,7 @@
                             Production in Queensland
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart5"></div>
+							<canvas id="morris-donut-chart5"></canvas>
                         </div>
                     </div>
                     </div>
@@ -145,10 +141,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in Queensland
+                            Sale Volume in Queensland
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart6"></div>
+							<canvas id="morris-donut-chart6"></canvas>
                         </div>
                     </div>
                 </div>
@@ -162,7 +158,7 @@
                             Production in South Australia
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart7"></div>
+							<canvas id="morris-donut-chart7"></canvas>
                         </div>
                     </div>
                     </div>
@@ -170,10 +166,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in South Australia
+                            Sale Volume in South Australia
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart8"></div>
+							<canvas id="morris-donut-chart8"></canvas>
                         </div>
                     </div>
                 </div>
@@ -187,7 +183,7 @@
                             Production in Tasmania
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart9"></div>
+							<canvas id="morris-donut-chart9"></canvas>
                         </div>
                     </div>
                     </div>
@@ -195,10 +191,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in Tasmania
+                            Sale Volume in Tasmania
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart10"></div>
+							<canvas id="morris-donut-chart10"></canvas>
                         </div>
                     </div>
                 </div>
@@ -212,7 +208,7 @@
                             Production in Victoria
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart11"></div>
+							<canvas id="morris-donut-chart11"></canvas>
                         </div>
                     </div>
                     </div>
@@ -220,10 +216,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in Victoria
+                            Sale Volume in Victoria
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart12"></div>
+							<canvas id="morris-donut-chart12"></canvas>
                         </div>
                     </div>
                 </div>
@@ -237,7 +233,7 @@
                             Production in Western Australia
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart13"></div>
+							<canvas id="morris-donut-chart13"></canvas>
                         </div>
                     </div>
                     </div>
@@ -245,10 +241,10 @@
                        <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Selling in Western Australia
+                            Sale Volume in Western Australia
                         </div>
                         <div class="panel-body">
-							<div id="morris-donut-chart14"></div>
+							<canvas id="morris-donut-chart14"></canvas>
                         </div>
                     </div>
                 </div>
@@ -272,8 +268,7 @@
     var myPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ['Scallop', 'Squid', 'Salmonids', 'Other fish', 'Rock lobster', 'Oyster',
-           'Tuna', 'Crab', 'Abalone', 'Prawns', 'Other Molluscs', 'Other Curstaceans'],
+      labels: ["{{product[0][0][0]}}","{{product[0][1][0]}}","{{product[0][2][0]}}","{{product[0][3][0]}}","{{product[0][4][0]}}","{{product[0][5][0]}}","{{product[0][6][0]}}","{{product[0][7][0]}}","{{product[0][8][0]}}","{{product[0][9][0]}}","{{product[0][10][0]}}","{{product[0][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -281,20 +276,20 @@
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: [2478,5267,734,784,433]
-      }]
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[0][0][1]}},{{product[0][1][1]}},{{product[0][2][1]}},{{product[0][3][1]}},{{product[0][4][1]}},{{product[0][5][1]}},{{product[0][6][1]}},{{product[0][7][1]}},{{product[0][8][1]}},{{product[0][9][1]}},{{product[0][10][1]}},{{product[0][11][1]}}]
+     }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
+
       }
     }
 });
@@ -302,9 +297,7 @@
     var myPieChart2 = new Chart(ctx_2, {
     type: 'pie',
     data: {
-//      labels: ['Scallop', 'Squid', 'Salmonids', 'Other fish', 'Rock lobster', 'Oyster',
-//           'Tuna', 'Crab', 'Abalone', 'Prawns', 'Other Molluscs', 'Other Curstaceans'],
-      labels:[],
+      labels:["{{sale[0][0][0]}}","{{sale[0][1][0]}}","{{sale[0][2][0]}}","{{sale[0][3][0]}}","{{sale[0][4][0]}}","{{sale[0][5][0]}}","{{sale[0][6][0]}}","{{sale[0][7][0]}}","{{sale[0][8][0]}}","{{sale[0][9][0]}}","{{sale[0][10][0]}}","{{sale[0][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -312,20 +305,19 @@
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[0][0][1]}},{{sale[0][1][1]}},{{sale[0][2][1]}},{{sale[0][3][1]}},{{sale[0][4][1]}},{{sale[0][5][1]}},{{sale[0][6][1]}},{{sale[0][7][1]}},{{sale[0][8][1]}},{{sale[0][9][1]}},{{sale[0][10][1]}},{{sale[0][11][1]}}]
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -336,28 +328,27 @@
     var myPieChart3 = new Chart(ctx_3, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{product[1][0][0]}}","{{product[1][1][0]}}","{{product[1][2][0]}}","{{product[1][3][0]}}","{{product[1][4][0]}}","{{product[1][5][0]}}","{{product[1][6][0]}}","{{product[1][7][0]}}","{{product[1][8][0]}}","{{product[1][9][0]}}","{{product[1][10][0]}}","{{product[1][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+        backgroundColor:['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[1][0][1]}},{{product[1][1][1]}},{{product[1][2][1]}},{{product[1][3][1]}},{{product[1][4][1]}},{{product[1][5][1]}},{{product[1][6][1]}},{{product[1][7][1]}},{{product[1][8][1]}},{{product[1][9][1]}},{{product[1][10][1]}},{{product[1][11][1]}}]
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -366,7 +357,7 @@
     var myPieChart4 = new Chart(ctx_4, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{sale[1][0][0]}}","{{sale[1][1][0]}}","{{sale[1][2][0]}}","{{sale[1][3][0]}}","{{sale[1][4][0]}}","{{sale[1][5][0]}}","{{sale[1][6][0]}}","{{sale[1][7][0]}}","{{sale[1][8][0]}}","{{sale[1][9][0]}}","{{sale[1][10][0]}}","{{sale[1][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -374,20 +365,20 @@
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[1][0][1]}},{{sale[1][1][1]}},{{sale[1][2][1]}},{{sale[1][3][1]}},{{sale[1][4][1]}},{{sale[1][5][1]}},{{sale[1][6][1]}},{{sale[1][7][1]}},{{sale[1][8][1]}},{{sale[1][9][1]}},{{sale[1][10][1]}},{{sale[1][11][1]}}]
       }]
     },
     options: {
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+
       }
     }
 });
@@ -398,28 +389,27 @@ var ctx_5 = document.getElementById("morris-donut-chart5");
     var myPieChart5 = new Chart(ctx_5, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{product[2][0][0]}}","{{product[2][1][0]}}","{{product[2][2][0]}}","{{product[2][3][0]}}","{{product[2][4][0]}}","{{product[2][5][0]}}","{{product[2][6][0]}}","{{product[2][7][0]}}","{{product[2][8][0]}}","{{product[2][9][0]}}","{{product[2][10][0]}}","{{product[2][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+        backgroundColor:['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[2][0][1]}},{{product[2][1][1]}},{{product[2][2][1]}},{{product[2][3][1]}},{{product[2][4][1]}},{{product[2][5][1]}},{{product[2][6][1]}},{{product[2][7][1]}},{{product[2][8][1]}},{{product[2][9][1]}},{{product[2][10][1]}},{{product[2][11][1]}}],
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -428,7 +418,7 @@ var ctx_6 = document.getElementById("morris-donut-chart6");
     var myPieChart6 = new Chart(ctx_6, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{sale[2][0][0]}}","{{sale[2][1][0]}}","{{sale[2][2][0]}}","{{sale[2][3][0]}}","{{sale[2][4][0]}}","{{sale[2][5][0]}}","{{sale[2][6][0]}}","{{sale[2][7][0]}}","{{sale[2][8][0]}}","{{sale[2][9][0]}}","{{sale[2][10][0]}}","{{sale[2][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -436,20 +426,19 @@ var ctx_6 = document.getElementById("morris-donut-chart6");
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[2][0][1]}},{{sale[2][1][1]}},{{sale[2][2][1]}},{{sale[2][3][1]}},{{sale[2][4][1]}},{{sale[2][5][1]}},{{sale[2][6][1]}},{{sale[2][7][1]}},{{sale[2][8][1]}},{{sale[2][9][1]}},{{sale[2][10][1]}},{{sale[2][11][1]}}],
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -461,28 +450,27 @@ var ctx_7 = document.getElementById("morris-donut-chart7");
     var myPieChart7 = new Chart(ctx_7, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{product[3][0][0]}}","{{product[3][1][0]}}","{{product[3][2][0]}}","{{product[3][3][0]}}","{{product[3][4][0]}}","{{product[3][5][0]}}","{{product[3][6][0]}}","{{product[3][7][0]}}","{{product[3][8][0]}}","{{product[3][9][0]}}","{{product[3][10][0]}}","{{product[3][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+        backgroundColor:['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[3][0][1]}},{{product[3][1][1]}},{{product[3][2][1]}},{{product[3][3][1]}},{{product[3][4][1]}},{{product[3][5][1]}},{{product[3][6][1]}},{{product[3][7][1]}},{{product[3][8][1]}},{{product[3][9][1]}},{{product[3][10][1]}},{{product[3][11][1]}}],
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -491,28 +479,28 @@ var ctx_8 = document.getElementById("morris-donut-chart8");
     var myPieChart8 = new Chart(ctx_8, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{sale[3][0][0]}}","{{sale[3][1][0]}}","{{sale[3][2][0]}}","{{sale[3][3][0]}}","{{sale[3][4][0]}}","{{sale[3][5][0]}}","{{sale[3][6][0]}}","{{sale[3][7][0]}}","{{sale[3][8][0]}}","{{sale[3][9][0]}}","{{sale[3][10][0]}}","{{sale[3][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+        backgroundColor:['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[3][0][1]}},{{sale[3][1][1]}},{{sale[3][2][1]}},{{sale[3][3][1]}},{{sale[3][4][1]}},{{sale[3][5][1]}},{{sale[3][6][1]}},{{sale[3][7][1]}},{{sale[3][8][1]}},{{sale[3][9][1]}},{{sale[3][10][1]}},{{sale[3][11][1]}}],
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
+
       }
     }
 });
@@ -524,7 +512,7 @@ var ctx_9 = document.getElementById("morris-donut-chart9");
     var myPieChart9 = new Chart(ctx_9, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{product[4][0][0]}}","{{product[4][1][0]}}","{{product[4][2][0]}}","{{product[4][3][0]}}","{{product[4][4][0]}}","{{product[4][5][0]}}","{{product[4][6][0]}}","{{product[4][7][0]}}","{{product[4][8][0]}}","{{product[4][9][0]}}","{{product[4][10][0]}}","{{product[4][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -532,20 +520,19 @@ var ctx_9 = document.getElementById("morris-donut-chart9");
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[4][0][1]}},{{product[4][1][1]}},{{product[4][2][1]}},{{product[4][3][1]}},{{product[4][4][1]}},{{product[4][5][1]}},{{product[4][6][1]}},{{product[4][7][1]}},{{product[4][8][1]}},{{product[4][9][1]}},{{product[4][10][1]}},{{product[4][11][1]}}]
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -554,7 +541,7 @@ var ctx_10 = document.getElementById("morris-donut-chart10");
     var myPieChart10 = new Chart(ctx_10, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{sale[4][0][0]}}","{{sale[4][1][0]}}","{{sale[4][2][0]}}","{{sale[4][3][0]}}","{{sale[4][4][0]}}","{{sale[4][5][0]}}","{{sale[4][6][0]}}","{{sale[4][7][0]}}","{{sale[4][8][0]}}","{{sale[4][9][0]}}","{{sale[4][10][0]}}","{{sale[4][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -562,20 +549,20 @@ var ctx_10 = document.getElementById("morris-donut-chart10");
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[4][0][1]}},{{sale[4][1][1]}},{{sale[4][2][1]}},{{sale[4][3][1]}},{{sale[4][4][1]}},{{sale[4][5][1]}},{{sale[4][6][1]}},{{sale[4][7][1]}},{{sale[4][8][1]}},{{sale[4][9][1]}},{{sale[4][10][1]}},{{sale[4][11][1]}}]
+
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -586,28 +573,27 @@ var ctx_11 = document.getElementById("morris-donut-chart11");
     var myPieChart11 = new Chart(ctx_11, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{product[5][0][0]}}","{{product[5][1][0]}}","{{product[5][2][0]}}","{{product[5][3][0]}}","{{product[5][4][0]}}","{{product[5][5][0]}}","{{product[5][6][0]}}","{{product[5][7][0]}}","{{product[5][8][0]}}","{{product[5][9][0]}}","{{product[5][10][0]}}","{{product[5][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+        backgroundColor:['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[5][0][1]}},{{product[5][1][1]}},{{product[5][2][1]}},{{product[5][3][1]}},{{product[5][4][1]}},{{product[5][5][1]}},{{product[5][6][1]}},{{product[5][7][1]}},{{product[5][8][1]}},{{product[5][9][1]}},{{product[5][10][1]}},{{product[5][11][1]}}]
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -616,7 +602,8 @@ var ctx_12 = document.getElementById("morris-donut-chart12");
     var myPieChart12 = new Chart(ctx_12, {
     type: 'pie',
     data: {
-      labels: [],
+      labels:["{{sale[5][0][0]}}","{{sale[5][1][0]}}","{{sale[5][2][0]}}","{{sale[5][3][0]}}","{{sale[5][4][0]}}","{{sale[5][5][0]}}","{{sale[5][6][0]}}","{{sale[5][7][0]}}","{{sale[5][8][0]}}","{{sale[5][9][0]}}","{{sale[5][10][0]}}","{{sale[5][11][0]}}"],
+
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -624,20 +611,20 @@ var ctx_12 = document.getElementById("morris-donut-chart12");
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
-      }]
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[5][0][1]}},{{sale[5][1][1]}},{{sale[5][2][1]}},{{sale[5][3][1]}},{{sale[5][4][1]}},{{sale[5][5][1]}},{{sale[5][6][1]}},{{sale[5][7][1]}},{{sale[5][8][1]}},{{sale[5][9][1]}},{{sale[5][10][1]}},{{sale[5][11][1]}}]
+
+        }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -649,7 +636,7 @@ var ctx_13 = document.getElementById("morris-donut-chart13");
     var myPieChart13 = new Chart(ctx_13, {
     type: 'pie',
     data: {
-      labels: [],
+      labels: ["{{product[6][0][0]}}","{{product[6][1][0]}}","{{product[6][2][0]}}","{{product[6][3][0]}}","{{product[6][4][0]}}","{{product[6][5][0]}}","{{product[6][6][0]}}","{{product[6][7][0]}}","{{product[6][8][0]}}","{{product[6][9][0]}}","{{product[6][10][0]}}","{{product[6][11][0]}}"],
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ['rgba(255, 99, 132, 0.2)',
@@ -657,20 +644,19 @@ var ctx_13 = document.getElementById("morris-donut-chart13");
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{product[6][0][1]}},{{product[6][1][1]}},{{product[6][2][1]}},{{product[6][3][1]}},{{product[6][4][1]}},{{product[6][5][1]}},{{product[6][6][1]}},{{product[6][7][1]}},{{product[6][8][1]}},{{product[6][9][1]}},{{product[6][10][1]}},{{product[6][11][1]}}]
       }]
-    },
+      },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
@@ -678,32 +664,32 @@ var ctx_14 = document.getElementById("morris-donut-chart14");
     var myPieChart14 = new Chart(ctx_14, {
     type: 'pie',
     data: {
-      labels: [],
+      labels:["{{sale[6][0][0]}}","{{sale[6][1][0]}}","{{sale[6][2][0]}}","{{sale[6][3][0]}}","{{sale[6][4][0]}}","{{sale[6][5][0]}}","{{sale[6][6][0]}}","{{sale[6][7][0]}}","{{sale[6][8][0]}}","{{sale[6][9][0]}}","{{sale[6][10][0]}}","{{sale[6][11][0]}}"],
+
       datasets: [{
-        label: "Population (millions)",
-        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+        label: "Fish ",
+        backgroundColor:['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(230, 120, 132, 0.2)',
-                'rgba(200, 140, 132, 0.2)',
-                'rgba(180, 160, 132, 0.2)',
-                'rgba(160, 180, 132, 0.2)',
-                'rgba(140, 200, 132, 0.2)',
-                'rgba(120, 220, 132, 0.2)',
-                'rgba(120, 220, 70, 0.2)',
-                'rgba(120, 220, 90, 0.2)'],
-        data: []
+                'rgba(200, 140, 100, 0.2)',
+                'rgba(180, 160, 150, 0.2)',
+                'rgba(160, 180, 200, 0.2)',
+                'rgba(140, 200, 30, 0.2)',
+                'rgba(120, 220, 80, 0.2)',
+                'rgba(20, 20, 70, 0.2)',
+                'rgba(120, 80, 90, 0.2)'],
+        data: [{{sale[6][0][1]}},{{sale[6][1][1]}},{{sale[6][2][1]}},{{sale[6][3][1]}},{{sale[6][4][1]}},{{sale[6][5][1]}},{{sale[6][6][1]}},{{sale[6][7][1]}},{{sale[6][8][1]}},{{sale[6][9][1]}},{{sale[6][10][1]}},{{sale[6][11][1]}}]
+
       }]
     },
     options: {
       title: {
-        display: true,
-        text: 'Predicted world population (millions) in 2050'
+        display: true
       }
     }
 });
-
 </script>
 
 </body>

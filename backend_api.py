@@ -212,7 +212,8 @@ def pie_chart_support():
     # return jsonify(prompt='OK',
     #                status_code=200,
     #                data={'sale': sale_resrc, 'production': product_resrc}), 200
-    return render_template("piechart.html", sale=sale_list, product=product_list)
+
+    return render_template("piechart.html", sale=sale_list, product=product_list,year=year)
 
 
 # for testing ---- by Yanjie
@@ -229,4 +230,4 @@ def init_pi():
   return render_template('persentage.html')
 
 if __name__ == '__main__':
-    app.run(port=23131,debug=True)
+    app.run(port=5050,debug=True)

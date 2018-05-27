@@ -42,34 +42,37 @@
                         <a><i class="fa fa-sitemap"></i> Production in states</a>
                         <form name="states" method="GET" role="form"  action="line_chart_support">
                             <p style="color:white;">State: </p> <select name="states" id="states" value="states">
-                            <option value="NSW">New South Wales</option>
+                             <option value="NSW">New South Wales</option>
                             <option value="NT">Norther Territory</option>
-                            <option value="QL">Queensland</option>
+                            <option value="Qld">Queensland</option>
                             <option value="SA">South Australia</option>
-                            <option value="TM">Tasmania</option>
-                            <option value="VT">Victoria</option>
+                            <option value="Tas">Tasmania</option>
+                            <option value="Vic">Victoria</option>
                             <option value="WA">Western Australia</option>
                         </select>
                          <p style="color:white;">Species: </p><select name="species" id="species" value="species">
-                                <option value="Abalone">Abalone</option>
+                                <option value="Scallop">Scallop</option>
+                                <option value="Squid">Squid</option>
                                 <option value="Salmonids">Salmonids</option>
-                                <option value="Whiting">Whiting</option>
-                                <option value="Swordfish">Swordfish</option>
+                                <option value="Oyster">Oyster</option>
                                 <option value="Crab">Crab</option>
                                 <option value="Tuna">Tuna</option>
-                                <option value="Scallop">Scallop</option>
+                                <option value="Abalone">Abalone</option>
                                 <option value="Prawns">Prawns</option>
                                 <option value="Rock lobster">Prck lobster</option>
+                                <option value="Other_fish">Other fish</option>
+                                <option value="Other_Molluscs">Other Molluscs</option>
+                                <option value="Other_Curstaceans">Other Curstaceans</option>
                             </select>
                             <p></p>
                          <input type="submit" value="submit">
                         </form>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/species"><i class="fa fa-desktop"></i> Species Sorted by States</a>
+                        <a href="http://127.0.0.1:5050/species"><i class="fa fa-desktop"></i> Species Sorted by States</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5000/pies"><i class="fa fa-desktop"></i> Production and saling in States</a>
+                        <a href="http://127.0.0.1:5050/pies"><i class="fa fa-desktop"></i> Production and saling in States</a>
                     </li>
 
 
@@ -133,18 +136,18 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: ["2005", "2006", "2007", "2008", "2009", "2010", "2011","2012","2013","2014"],
+        labels: ["2010", "2011","2012","2013","2014","2015"],
         datasets: [{
-            label: "Unit Price for Export",
+            label: "Unit Price ",
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor:'rgb(255, 99, 132)',
-            data: [price_chart["2005"],price_chart["2006"],price_chart["2007"],price_chart["2008"],price_chart["2009"],price_chart["2010"],price_chart["2011"],{{price_chart["2012"]}},{{price_chart["2013"]}},{{price_chart["2014"]}}],
+            data: [{{price[1][0]}},{{price[1][1]}},{{price[1][2]}},{{price[1][3]}},{{price[1][4]}},{{price[1][5]}}],
             fill:false
         },
          {label: "Cost Value",
             backgroundColor: 'rgb(100, 99, 132)',
             borderColor:'rgb(100, 99, 132)',
-            data: [],
+            data:[{{price[0][0]}},{{price[0][1]}},{{price[0][2]}},{{price[0][3]}},{{price[0][4]}},{{price[0][5]}}],
             fill:false
             }
         ]
@@ -160,18 +163,18 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: ["2005", "2006", "2007", "2008", "2009", "2010", "2011","2012","2013","2014"],
+        labels: [ "2010", "2011","2012","2013","2014","2015"],
         datasets: [{
             label: "Production",
             backgroundColor: 'rgb(200, 99, 100)',
             borderColor:'rgb(200, 99, 100)',
-            data: [],
+            data: [{{volume[0][0]}},{{volume[0][1]}},{{volume[0][2]}},{{volume[0][3]}},{{volume[0][4]}},{{volume[0][5]}}],
             fill:false
         },
          {label: "Sales volume",
             backgroundColor: 'rgb(30, 99, 22)',
             borderColor:'rgb(30, 99, 22)',
-            data: [],
+            data: [{{volume[1][0]}},{{volume[1][1]}},{{volume[1][2]}},{{volume[1][3]}},{{volume[1][4]}},{{volume[1][5]}}],
             fill:false
             }
         ]
