@@ -155,9 +155,10 @@ def data_by_state():
             required_resrc['volume'][st] = year_species_entry['volume']
             required_resrc['unit_price'][st] = year_species_entry['unit_price']
 
-    return jsonify(prompt='OK',
-                   status_code=200,
-                   data=required_resrc), 200
+    # return jsonify(prompt='OK',
+    #                status_code=200,
+    #                data=required_resrc), 200
+    return render_template("barchart.html",<data>)
 
 
 @app.route('/pie_chart_support', methods=['GET'])
@@ -200,9 +201,10 @@ def pie_chart_support():
                     else:
                         product_resrc[st][species] = year_species_entry[species]['volume']
 
-    return jsonify(prompt='OK',
-                   status_code=200,
-                   data={'sale': sale_resrc, 'production': product_resrc}), 200
+    # return jsonify(prompt='OK',
+    #                status_code=200,
+    #                data={'sale': sale_resrc, 'production': product_resrc}), 200
+    return render_template("piechart.html",<data>)
 
 
 # for testing ---- by Yanjie
