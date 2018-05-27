@@ -150,7 +150,7 @@ def data_by_state():
                        status_code=4041,
                        data=None), 404
 
-    required_resrc = {'volume': {}, 'unit_price': {}}
+    required_resrc = defaultdict(dict)
     for collection_name in db.collection_names(include_system_collections=False):
         if '_' in collection_name:
             st = collection_name.split('_')[0]
