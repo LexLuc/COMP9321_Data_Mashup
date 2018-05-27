@@ -119,7 +119,7 @@ def data_by_year():
     #                status_code=200,
     #                data={'sales': price_chart,
     #                      'volume': volume_chart}), 200
-    return render_template("linechart.html", price=price_chart_data, volume=volume_chart_data)
+    return render_template("linechart.html", price=price_chart_data, volume=volume_chart_data,state=state,species=species)
 
 @app.route('/bar_chart_support', methods=['GET'])
 def data_by_state():

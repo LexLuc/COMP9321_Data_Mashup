@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e2f307b-0eca-4ccd-ac2a-456f78759481" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/backend_api.py" afterPath="$PROJECT_DIR$/backend_api.py" />
-      <change beforePath="$PROJECT_DIR$/templates/barchart.html" afterPath="$PROJECT_DIR$/templates/barchart.html" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
       <change beforePath="$PROJECT_DIR$/templates/linechart.html" afterPath="$PROJECT_DIR$/templates/linechart.html" />
-      <change beforePath="$PROJECT_DIR$/templates/persentage.html" afterPath="$PROJECT_DIR$/templates/persentage.html" />
-      <change beforePath="$PROJECT_DIR$/templates/piechart.html" afterPath="$PROJECT_DIR$/templates/piechart.html" />
-      <change beforePath="$PROJECT_DIR$/templates/species.html" afterPath="$PROJECT_DIR$/templates/species.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +20,8 @@
             <file leaf-file-name="backend_api.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/backend_api.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1086">
-                    <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+                  <state relative-caret-position="687">
+                    <caret line="121" column="121" lean-forward="false" selection-start-line="121" selection-start-column="121" selection-end-line="121" selection-end-column="121" />
                     <folding>
                       <element signature="e#0#58#0" expanded="true" />
                     </folding>
@@ -105,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="linechart.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="linechart.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/linechart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171">
-              <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="323">
+              <caret line="89" column="64" lean-forward="false" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
               <folding>
                 <element signature="n#style#0;n#p#1;n#form#0;n#li#0;n#ul#0;n#div#0;n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -117,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="piechart.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="piechart.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/piechart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="243" column="39" lean-forward="false" selection-start-line="243" selection-start-column="39" selection-end-line="243" selection-end-column="39" />
+            <state relative-caret-position="343">
+              <caret line="223" column="8" lean-forward="true" selection-start-line="223" selection-start-column="8" selection-end-line="223" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -153,12 +146,12 @@
         <option value="$PROJECT_DIR$/9321ass3-1.py" />
         <option value="$PROJECT_DIR$/static/js/barchart.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/linechart.html" />
         <option value="$PROJECT_DIR$/templates/species.html" />
         <option value="$PROJECT_DIR$/templates/barchart.html" />
         <option value="$PROJECT_DIR$/templates/persentage.html" />
-        <option value="$PROJECT_DIR$/backend_api.py" />
         <option value="$PROJECT_DIR$/templates/piechart.html" />
+        <option value="$PROJECT_DIR$/backend_api.py" />
+        <option value="$PROJECT_DIR$/templates/linechart.html" />
       </list>
     </option>
   </component>
@@ -624,16 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/linechart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#p#1;n#form#0;n#li#0;n#ul#0;n#div#0;n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/barchart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1438">
@@ -676,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1086">
-          <caret line="214" column="0" lean-forward="false" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+        <state relative-caret-position="687">
+          <caret line="121" column="121" lean-forward="false" selection-start-line="121" selection-start-column="121" selection-end-line="121" selection-end-column="121" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
@@ -686,9 +669,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/piechart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="243" column="39" lean-forward="false" selection-start-line="243" selection-start-column="39" selection-end-line="243" selection-end-column="39" />
+        <state relative-caret-position="343">
+          <caret line="223" column="8" lean-forward="true" selection-start-line="223" selection-start-column="8" selection-end-line="223" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/linechart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="89" column="64" lean-forward="false" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
+          <folding>
+            <element signature="n#style#0;n#p#1;n#form#0;n#li#0;n#ul#0;n#div#0;n#nav#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
