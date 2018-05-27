@@ -163,7 +163,7 @@ def data_by_state():
     # return jsonify(prompt='OK',
     #                status_code=200,
     #                data=required_resrc), 200
-    return render_template("barchart.html", v_rank=product_volume_ranking, p_rank=sale_price_ranking)
+    return render_template("barchart.html", v_rank=product_volume_ranking, p_rank=sale_price_ranking,species=species,year=year)
 
 
 @app.route('/pie_chart_support', methods=['GET'])
