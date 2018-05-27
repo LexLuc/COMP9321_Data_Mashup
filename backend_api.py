@@ -111,12 +111,15 @@ def data_by_year():
                 price_chart['product_price'][year] = collection[species]['unit_price']
                 volume_chart['product_volume'][year] = collection[species]['volume']
 
+    price_chart_data = [list(price_chart['product_price'].values()),
+                        list(price_chart['sale_price'].values())]
+    volume_chart_data = [list(volume_chart['product_volume'].values()),
+                         list(volume_chart['sale_volume'].values())]
     # return jsonify(prompt='OK',
     #                status_code=200,
     #                data={'sales': price_chart,
     #                      'volume': volume_chart}), 200
-    print(price_chart)
-    return render_template("linechart.html",price_chart=price_chart,volume=volume_chart)
+    return render_template("linechart.html", price=price_chart_data, volume=volume_chart_data)
 
 @app.route('/bar_chart_support', methods=['GET'])
 def data_by_state():
@@ -155,10 +158,12 @@ def data_by_state():
             required_resrc['volume'][st] = year_species_entry['volume']
             required_resrc['unit_price'][st] = year_species_entry['unit_price']
 
+    product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1]))
+    sale_price_ranking = list(sorted(required_resrc['unit_price'].items(), key=lambda x: x[1], reverse=True))
     # return jsonify(prompt='OK',
     #                status_code=200,
     #                data=required_resrc), 200
-    return render_template("barchart.html",<data>)
+    return render_template("barchart.html", v_rank=product_volume_ranking, p_rank=sale_price_ranking)
 
 
 @app.route('/pie_chart_support', methods=['GET'])
