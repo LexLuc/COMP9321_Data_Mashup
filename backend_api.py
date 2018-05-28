@@ -286,9 +286,10 @@ def recommend():
     for st in sale_price_ranking:
         if st in product_volume_ranking:
             if product_volume_ranking[st] >= float(budget):
-                return jsonify(prompt='OK',
-                               status_code=200,
-                               data=[st])
+                render_template('xxx.html', recommend_state=recommend_state)
+                # return jsonify(prompt='OK',
+                #                status_code=200,
+                #                data=[st])
             recommend_state.append(st)
     return render_template('xxx.html', recommend_state=recommend_state)
     #
