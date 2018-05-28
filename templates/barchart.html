@@ -88,7 +88,7 @@
 				    <div class="col-md-9 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Production in this year
+                                Production in this year (t)
                             </div>
                             <div class="panel-body">
                                 <canvas id="morris-bar-chart"></canvas>
@@ -98,7 +98,7 @@
                      <div class="col-md-9 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Unit Price in this year
+                               Exporting Unit Price in this year(A$)
                             </div>
                             <div class="panel-body">
                                 <canvas id="morris-bar-chart2"></canvas>
@@ -122,7 +122,7 @@ var ctx_1 = document.getElementById("morris-bar-chart");
 var myChart = new Chart(ctx_1, {
     type: 'bar',
     data: {
-        labels: {{p_rank_label | tojson}},
+        labels: {{p_rank_lable | tojson}},
         datasets: [{
             label: 'Production Rank',
             data:{{p_rank_value | tojson}},
@@ -161,9 +161,9 @@ var ctx_2 = document.getElementById("morris-bar-chart2");
 var myChart = new Chart(ctx_2, {
     type: 'bar',
     data: {
-        labels:{{v_rank_label | tojson}},
+        labels:{{v_rank_lable | tojson}},
         datasets: [{
-            label: 'Unit Price Rank',
+            label: 'Exporting Unit Price Rank',
             data: {{v_rank_value | tojson}},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
