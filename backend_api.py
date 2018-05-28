@@ -167,7 +167,6 @@ def data_by_state():
     s_value = []
     product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1],reverse=True))
     sale_price_ranking = list(sorted(required_resrc['unit_price'].items(), key=lambda x: x[1], reverse=True))
-    print(sale_price_ranking)
 
     for item in sale_price_ranking:
         s_label.append(item[0])
