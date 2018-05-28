@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -242,6 +242,59 @@ def pie_chart_support():
                            product_label=product_list_label,
                            product_value=product_list_value,
                            year=year)
+
+@app.route('/recommendation', methods=['GET'])
+def recommend():
+    """
+    Recommend customers which state to purchase from
+    by given wanted species, volume and budget.
+    E.g. /recommendation?species=Salmonids&volume=10&budget=2000
+    :return: Json
+    """
+    # connect to Mongodb
+    db = extract_fishdb()
+
+    # obtain parameters
+    species = request.args.get('species')
+    volume = request.args.get('volume')
+    budget = request.args.get('budget')
+
+    # check parameters
+    if species is None or volume is None or budget is None:
+        return jsonify(prompt='SPECIES AND VOLUME AND BUDGET ARE REQUIRED',
+                       status_code=4008,
+                       data=None), 400
+    if species not in SPECIES:
+        return jsonify(prompt='SPECIES NOT FOUND',
+                       status_code=4044,
+                       data=None), 404
+
+    required_resrc = defaultdict(dict)
+    for collection_name in db.collection_names(include_system_collections=False):
+        if '_' in collection_name:
+            st, it = collection_name.split('_')
+            species_entry = db[collection_name].find_one({'year': '2014'}, {'_id': 0})[species]
+            if it == 'production' and species_entry['volume'] != 0:
+                required_resrc['volume'][st] = species_entry['volume']
+            elif it == 'export' and species_entry['unit_price'] != 0:
+                required_resrc['unit_price'][st] = species_entry['unit_price']
+
+    sale_price_ranking = OrderedDict(sorted(required_resrc['unit_price'].items(), key=lambda x: x[1]))
+    product_volume_ranking = OrderedDict(sorted(required_resrc['volume'].items(), key=lambda x: x[1],reverse=True))
+
+    recommend_state = []
+    for st in sale_price_ranking:
+        if st in product_volume_ranking:
+            if product_volume_ranking[st] >= float(budget):
+                return jsonify(prompt='OK',
+                               status_code=200,
+                               data=[st])
+            recommend_state.append(st)
+    return render_template('xxx.html', recommend_state=recommend_state)
+    #
+    # return jsonify(prompt='OK',
+    #                status_code=200,
+    #                data=recommend_state), 200
 
 
 # for testing ---- by Yanjie
