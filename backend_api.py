@@ -160,13 +160,28 @@ def data_by_state():
                 required_resrc['volume'][st] = year_species_entry['volume']
             elif  collection_name.endswith('_export') and year_species_entry['unit_price']!=0:
                 required_resrc['unit_price'][st] = year_species_entry['unit_price']
-
+    p_label = []
+    s_label = []
+    p_value = []
+    s_value = []
     product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1],reverse=True))
     sale_price_ranking = list(sorted(required_resrc['unit_price'].items(), key=lambda x: x[1], reverse=True))
+    for item in range(len(sale_price_ranking)):
+        s_label.append(item[0])
+        s_value.append(item[1])
+    for item in range(len(product_volume_ranking)):
+        p_label.append(item[0])
+        p_value.append(item[1])
     # return jsonify(prompt='OK',
     #                status_code=200,
     #                data=required_resrc), 200
-    return render_template("barchart.html", v_rank=product_volume_ranking, p_rank=sale_price_ranking,species=species,year=year)
+    return render_template("barchart.html",
+                           v_rank_lable=p_label,
+                           v_rank_value=p_value,
+                           p_rank_lable=s_label,
+                           p_rank_value=s_value,
+                           species=species,
+                           year=year)
 
 
 @app.route('/pie_chart_support', methods=['GET'])
