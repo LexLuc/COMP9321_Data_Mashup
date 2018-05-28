@@ -158,7 +158,7 @@ def data_by_state():
             year_species_entry = db[collection_name].find_one({'year': year}, {'_id': 0})[species]
             if collection_name.endswith('_production') and year_species_entry['volume']!=0:
                 required_resrc['volume'][st] = year_species_entry['volume']
-            elif  collection_name.endswith('_production') and year_species_entry['unit_price']!=0:
+            elif  collection_name.endswith('_export') and year_species_entry['unit_price']!=0:
                 required_resrc['unit_price'][st] = year_species_entry['unit_price']
 
     product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1]),reverse=True)
