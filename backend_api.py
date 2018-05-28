@@ -218,8 +218,12 @@ def pie_chart_support():
 
 # for testing ---- by Yanjie
 @app.route("/" , methods=['GET'])
-def init_st():
+def init():
   return render_template('index.html')
+
+@app.route("/trend" , methods=['GET'])
+def init_tr():
+  return render_template('ProductionAndExport.html')
 
 @app.route("/species" , methods=['GET'])
 def init_sp():
