@@ -122,10 +122,10 @@ var ctx_1 = document.getElementById("morris-bar-chart");
 var myChart = new Chart(ctx_1, {
     type: 'bar',
     data: {
-        labels: ["{{p_rank[0][0]}}","{{p_rank[1][0]}}","{{p_rank[2][0]}}","{{p_rank[3][0]}}","{{p_rank[4][0]}}","{{p_rank[5][0]}}","{{p_rank[6][0]}}"],
+        labels: {{p_rank_label|tojson}},
         datasets: [{
             label: 'Production Rank',
-            data:[{{p_rank[0][1]}},{{p_rank[1][1]}},{{p_rank[2][1]}},{{p_rank[3][1]}},{{p_rank[4][1]}},{{p_rank[5][1]}},{{p_rank[6][1]}}],
+            data:{{p_rank_value|tojson}},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -161,10 +161,10 @@ var ctx_2 = document.getElementById("morris-bar-chart2");
 var myChart = new Chart(ctx_2, {
     type: 'bar',
     data: {
-        labels:["{{v_rank[0][0]}}","{{v_rank[1][0]}}","{{v_rank[2][0]}}","{{v_rank[3][0]}}","{{v_rank[4][0]}}","{{v_rank[5][0]}}","{{v_rank[6][0]}}"],
+        labels:{{v_rank_label|tojson}},
         datasets: [{
             label: 'Unit Price Rank',
-            data: [{{v_rank[0][1]}},{{v_rank[1][1]}},{{v_rank[2][1]}},{{v_rank[3][1]}},{{v_rank[4][1]}},{{v_rank[5][1]}},{{v_rank[6][1]}}],
+            data: {{v_rank_value|tojson}},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
