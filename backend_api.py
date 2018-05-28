@@ -226,14 +226,22 @@ def pie_chart_support():
                     else:
                         product_resrc[st][species] = year_species_entry[species]['volume']
 
-    sale_list = [[(sp, data) for sp, data in product_resrc[st].items()] for st in sorted(sale_resrc.keys())]
-    product_list = [[(sp, data) for sp, data in product_resrc[st].items()] for st in sorted(product_resrc.keys())]
-
+    sale_list_label = [[(sp) for sp in sale_resrc[st].keys()] for st in sorted(sale_resrc.keys())]
+    sale_list_value = [[(data) for data in sale_resrc[st].values()] for st in sorted(sale_resrc.keys())]
+    product_list_label = [[(sp) for sp in product_resrc[st].keys()] for st in sorted(product_resrc.keys())]
+    product_list_value = [[(data) for data in product_resrc[st].values()] for st in sorted(product_resrc.keys())]
+    # print(sale_list_label)
+    # print(sale_list_value)
     # return jsonify(prompt='OK',
     #                status_code=200,
     #                data={'sale': sale_resrc, 'production': product_resrc}), 200
 
-    return render_template("piechart.html", sale=sale_list, product=product_list,year=year)
+    return render_template("piechart.html",
+                           sale_label=sale_list_label,
+                           sale_value=sale_list_value,
+                           product_label=product_list_label,
+                           product_value=product_list_value,
+                           year=year)
 
 
 # for testing ---- by Yanjie
