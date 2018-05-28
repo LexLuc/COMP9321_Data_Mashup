@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Production and Export of {{species}} in {{state}}
+                            The trend of Production and Export price for {{species}} in {{state}}
                         </h1>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
 				    <div class="col-md-12">
 					    <div class="panel panel-default">
 						    <div class="panel-heading">
-							Exporting Unit Price and Cost Value (A$)
+							Export Price and Production Value (A$)
 						    </div>
 						    <div class="panel-body">
 							    <canvas id="morris-line-chart1"></canvas>
@@ -104,7 +104,7 @@
 				    <div class="col-md-12">
 					    <div class="panel panel-default">
 						    <div class="panel-heading">
-							Production and Sales volume (t)
+							Production and Export volume (t)
 						    </div>
 						    <div class="panel-body">
 							    <canvas id="morris-line-chart2"></canvas>
@@ -134,13 +134,13 @@ var chart = new Chart(ctx, {
     data: {
         labels: ["2010", "2011","2012","2013","2014","2015"],
         datasets: [{
-            label: "Unit Price ",
+            label: "Production price ",
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor:'rgb(255, 99, 132)',
             data: [{{price[1][0]}},{{price[1][1]}},{{price[1][2]}},{{price[1][3]}},{{price[1][4]}},{{price[1][5]}}],
             fill:false
         },
-         {label: "Cost Value",
+         {label: "Export price",
             backgroundColor: 'rgb(100, 99, 132)',
             borderColor:'rgb(100, 99, 132)',
             data:[{{price[0][0]}},{{price[0][1]}},{{price[0][2]}},{{price[0][3]}},{{price[0][4]}},{{price[0][5]}}],
@@ -161,13 +161,13 @@ var chart = new Chart(ctx, {
     data: {
         labels: [ "2010", "2011","2012","2013","2014","2015"],
         datasets: [{
-            label: "Production",
+            label: "Export",
             backgroundColor: 'rgb(200, 99, 100)',
             borderColor:'rgb(200, 99, 100)',
             data: [{{volume[0][0]}},{{volume[0][1]}},{{volume[0][2]}},{{volume[0][3]}},{{volume[0][4]}},{{volume[0][5]}}],
             fill:false
         },
-         {label: "Sales volume",
+         {label: "Production",
             backgroundColor: 'rgb(30, 99, 22)',
             borderColor:'rgb(30, 99, 22)',
             data: [{{volume[1][0]}},{{volume[1][1]}},{{volume[1][2]}},{{volume[1][3]}},{{volume[1][4]}},{{volume[1][5]}}],
