@@ -35,15 +35,22 @@ def get_fish_detail(table,colume):
     for key in keylist:
         if detail[key]['volume'] == '0' \
                 and detail[key]['value'] == '0':
+            detail[key]['volume'] = 0.0
+            detail[key]['value'] = 0.0
             detail[key]['unit_price'] = 0.0
         elif detail[key]['volume'] == 'na' \
                 and detail[key]['value'] == 'na':
-            detail.pop(key)
+            detail[key]['volume'] = 0.0
+            detail[key]['value'] = 0.0
+            detail[key]['unit_price'] = 0.0
         elif detail[key]['volume'] not in ['0', 'na'] and detail[key]['value'] not in ['0', 'na']:
             # print(key,detail[key]['value'],detail[key]['volume'])
             detail[key]['unit_price'] = detail[key]['value'] / detail[key]['volume']
         else:
             print(key)
+            detail[key]['volume'] = 0.0
+            detail[key]['value'] = 0.0
+            detail[key]['unit_price'] = 0.0
     return detail
 
 def create_entity(table,colume,year):

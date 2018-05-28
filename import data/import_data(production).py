@@ -48,7 +48,9 @@ def get_fish_detail(table,colume):
     for key in keylist:
         if detail[key]['volume']=='0' \
                 and detail[key]['value']=='0':
-            detail[key]['unit_price']=0.0
+            detail[key]['volume'] = 0.0
+            detail[key]['value'] = 0.0
+            detail[key]['unit_price'] = 0.0
         elif detail[key]['volume']=='na' \
                 and detail[key]['value']=='na':
             detail[key]['volume']=0.0
