@@ -153,12 +153,15 @@ def data_by_state():
     required_resrc = defaultdict(dict)
     for collection_name in db.collection_names(include_system_collections=False):
         if '_' in collection_name:
+
             st = collection_name.split('_')[0]
             year_species_entry = db[collection_name].find_one({'year': year}, {'_id': 0})[species]
-            required_resrc['volume'][st] = year_species_entry['volume']
-            required_resrc['unit_price'][st] = year_species_entry['unit_price']
+            if collection_name.endswith('_production') and year_species_entry['volume']!=0:
+                required_resrc['volume'][st] = year_species_entry['volume']
+            elif  collection_name.endswith('_production') and year_species_entry['unit_price']!=0:
+                required_resrc['unit_price'][st] = year_species_entry['unit_price']
 
-    product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1]))
+    product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1]),reverse=True)
     sale_price_ranking = list(sorted(required_resrc['unit_price'].items(), key=lambda x: x[1], reverse=True))
     # return jsonify(prompt='OK',
     #                status_code=200,
