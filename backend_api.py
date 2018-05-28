@@ -161,7 +161,7 @@ def data_by_state():
             elif  collection_name.endswith('_export') and year_species_entry['unit_price']!=0:
                 required_resrc['unit_price'][st] = year_species_entry['unit_price']
 
-    product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1]),reverse=True)
+    product_volume_ranking = list(sorted(required_resrc['volume'].items(), key=lambda x: x[1],reverse=True))
     sale_price_ranking = list(sorted(required_resrc['unit_price'].items(), key=lambda x: x[1], reverse=True))
     # return jsonify(prompt='OK',
     #                status_code=200,
